@@ -1,4 +1,4 @@
-package br.com.ecosage.models;
+package br.com.ecosage.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
