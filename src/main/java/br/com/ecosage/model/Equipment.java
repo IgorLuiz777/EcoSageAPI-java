@@ -2,10 +2,13 @@ package br.com.ecosage.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.math.BigDecimal;
+
+// TODO: ADICONAR DTO - RESPONSE
 
 @Entity
 @Data
@@ -16,10 +19,13 @@ public class Equipment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     private String name;
 
+    @NotNull
     private BigDecimal power;
 
+    @NotNull
     private int averageUsagePerDay;
 
     @JsonIgnoreProperties("equipment")
