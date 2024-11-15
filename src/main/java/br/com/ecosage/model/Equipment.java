@@ -35,6 +35,11 @@ public class Equipment {
 
     private String personalNote;
 
+    @ManyToOne
+    @JoinColumn(name = "wanted_energy_usage_id")
+    @JsonIgnoreProperties("equipments")
+    private WantedEnergyUsage wantedEnergyUsage;
+
     // private User user;
 
     private boolean status;

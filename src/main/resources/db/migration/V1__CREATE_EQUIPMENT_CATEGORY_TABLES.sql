@@ -4,37 +4,29 @@ CREATE TABLE equipment_category (
     description VARCHAR(255)
 );
 
-CREATE TABLE equipment (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255),
-    power DECIMAL(19, 2),
-    average_usage_per_day INT,
-    equipment_category_id BIGINT,
-    personal_note VARCHAR(255),
-    status BOOLEAN,
-    CONSTRAINT fk_equipment_category
-        FOREIGN KEY (equipment_category_id)
-            REFERENCES equipment_category(id)
+CREATE TABLE wanted_energy_usage (
+                                     id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                     total_energy DECIMAL(19, 2) NOT NULL,
+                                     total_cost DECIMAL(19, 2) NOT NULL,
+                                     start_date DATE NOT NULL,
+                                     end_date DATE NOT NULL,
+                                     average_daily_consumption DECIMAL(19, 2)
 );
 
-INSERT INTO equipment_category (name, description) VALUES ('Electronics', 'Electronic devices and gadgets');
-INSERT INTO equipment_category (name, description) VALUES ('Appliances', 'Household appliances');
-INSERT INTO equipment_category (name, description) VALUES ('Industrial', 'Heavy industrial equipment');
+CREATE TABLE equipment (
+                           id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                           name VARCHAR(255) NOT NULL,
+                           power DECIMAL(19, 2) NOT NULL,
+                           average_usage_per_day INT NOT NULL,
+                           equipment_category_id BIGINT NOT NULL,
+                           wanted_energy_usage_id BIGINT NOT NULL,
+                           personal_note VARCHAR(255),
+                           status BOOLEAN NOT NULL DEFAULT TRUE,
+                           CONSTRAINT fk_equipment_category
+                               FOREIGN KEY (equipment_category_id)
+                                   REFERENCES equipment_category(id),
+                           CONSTRAINT fk_wanted_energy_usage
+                               FOREIGN KEY (wanted_energy_usage_id)
+                                   REFERENCES wanted_energy_usage(id)
+);
 
-INSERT INTO equipment (name, power, average_usage_per_day, equipment_category_id, personal_note, status)
-VALUES ('Laptop', 65.00, 8, 1, 'For office work', true);
-
-INSERT INTO equipment (name, power, average_usage_per_day, equipment_category_id, personal_note, status)
-VALUES ('Smartphone', 5.00, 12, 1, 'Personal use', true);
-
-INSERT INTO equipment (name, power, average_usage_per_day, equipment_category_id, personal_note, status)
-VALUES ('Refrigerator', 150.00, 24, 2, 'Kitchen appliance', true);
-
-INSERT INTO equipment (name, power, average_usage_per_day, equipment_category_id, personal_note, status)
-VALUES ('Microwave', 1200.00, 1, 2, 'Quick heating', false);
-
-INSERT INTO equipment (name, power, average_usage_per_day, equipment_category_id, personal_note, status)
-VALUES ('Drill Press', 500.00, 5, 3, 'For manufacturing', true);
-
-INSERT INTO equipment (name, power, average_usage_per_day, equipment_category_id, personal_note, status)
-VALUES ('Welding Machine', 2500.00, 3, 3, 'For metal works', true);

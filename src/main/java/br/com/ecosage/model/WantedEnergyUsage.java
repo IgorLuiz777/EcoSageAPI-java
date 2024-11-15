@@ -1,5 +1,6 @@
 package br.com.ecosage.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Entity
 @Data
+@Table(name = "wanted_energy_usage")
 public class WantedEnergyUsage {
 
     @Id
@@ -27,7 +29,7 @@ public class WantedEnergyUsage {
 
     private BigDecimal averageDailyConsumption;
 
-    @OneToMany
-    @JoinColumn(name = "wantedEnergyUsage_id")
+    @OneToMany(mappedBy = "wantedEnergyUsage", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("wantedEnergyUsage")
     private List<Equipment> equipments;
 }
