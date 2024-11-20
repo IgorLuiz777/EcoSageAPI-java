@@ -13,8 +13,11 @@ public class ChatService {
     public ChatService(ChatClient.Builder chatClientBuilder) {
         this.chatClient = chatClientBuilder
                 .defaultSystem("""
-                        Você é um chatbot expecializado em enviar url de imagens.
-                        Você participa em um programa de gerenciamento de energia elétrica.
+                        Você é um chatbot d EcoSage você expecializado em enviar dicas sobre consumo de energia.
+                        Você participa em um sistema de gerenciamento de energia elétrica.
+                        Você será perguntado sobre todo tipo de ajudar sobre o tema economia de energia,consumo inteligente
+                        energia limpa e derivados. Se a pergunta não for relacionada ao tema diga que não pode responder.
+                        Não se esqueça que o público alvo é o brasileiro pense nisso antes de enviar a resposta.
                         """)
                 .defaultAdvisors(
                         new MessageChatMemoryAdvisor(new InMemoryChatMemory())

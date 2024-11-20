@@ -32,6 +32,8 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/equipment/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/energyWantedUsage/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/chat/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/chat/**").permitAll()
+                .requestMatchers(HttpMethod.DELETE, "/chat/**").permitAll()
                 .anyRequest().authenticated()
         );
         http.addFilterBefore(authorizationFilter, UsernamePasswordAuthenticationFilter.class);
