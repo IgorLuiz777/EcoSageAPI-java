@@ -18,6 +18,7 @@ public class ChatService {
                         Você será perguntado sobre todo tipo de ajudar sobre o tema economia de energia,consumo inteligente
                         energia limpa e derivados. Se a pergunta não for relacionada ao tema diga que não pode responder.
                         Não se esqueça que o público alvo é o brasileiro pense nisso antes de enviar a resposta.
+                        Sempre limite as frases a parágrafros curtos e concisos. Faça texto de no máximo 600 caracteres.
                         """)
                 .defaultAdvisors(
                         new MessageChatMemoryAdvisor(new InMemoryChatMemory())

@@ -24,14 +24,12 @@ public class ChatController {
         this.rabbitConsumer = rabbitConsumer;
     }
 
-    @PostMapping()
-    public String chat(@RequestBody String message) {
+    @GetMapping()
+    @CrossOrigin(origins = "http://localhost:5173")
+    public String chat(@RequestParam String message) {
         rabbitProducer.sendUserMessage(message);
-
         String response = chatService.sentToAi(message);
-
         rabbitProducer.sendChatbotResponse(response);
-
         return "Mensagem enviada com sucesso!";
     }
 
