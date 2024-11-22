@@ -50,6 +50,9 @@ Essa parceria tecnológica garante que o EcoSage seja não apenas eficiente, mas
 
 ### Endpoints da API
 
+### Swagger
+ - `GET {{javaApi}}/swagger-ui/index.html` - Link da documentação no Swagger. 
+
 #### **Equipamentos**
 - `GET {{javaApi}}/equipment` - Listar todos os equipamentos.  
 - `POST {{javaApi}}/equipment` - Registrar um novo equipamento.  
@@ -76,6 +79,12 @@ Essa parceria tecnológica garante que o EcoSage seja não apenas eficiente, mas
 - `GET {{javaApi}}/energyWantedUsage/{id}` - Visualizar uma meta de consumo pelo ID.  
 - `PUT {{javaApi}}/energyWantedUsage/{id}` - Atualizar uma meta de consumo pelo ID.  
 - `DELETE {{javaApi}}/energyWantedUsage/{id}` - Remover uma meta de consumo pelo ID.  
+
+### **Chat**
+- `GET {{javaApi}}/chat` - Manda a mensagem para o AI.
+- `GET {{javaApi}}/chat/messages/user` - Visualiza as mensagens dos usuários. 
+- `GET {{javaApi}}/chat/messages/ai` - Visualiza as respostas da IA. 
+- `GET {{javaApi}}/chat/messages/user` - Limpa todas as mensagens. 
 
 ---
 
