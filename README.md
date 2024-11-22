@@ -95,9 +95,9 @@ Projeto C#: [GITHUB](https://github.com/IgorLuiz777/EcoSage-CSharp)
 
 Interface: [GITHUB](https://github.com/IgorLuiz777/EcoSage-front)
 
-Projeto Mobile: 
+Projeto Mobile: [GITHUB](https://github.com/lucasrychlicki/EcoSage)
 
-Projeto IA: 
+Projeto IA: [GITHUB](https://github.com/CastanhoPh/Ecosage)
 
 ### Equipe:
 - **Gustavo Monte (RM 551601)** - Compliance, Quality Assurance & Tests
