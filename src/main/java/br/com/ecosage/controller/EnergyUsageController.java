@@ -14,8 +14,10 @@ public class EnergyUsageController {
     private EnergyUsageService energyUsageService;
 
     @GetMapping()
-    public ResponseEntity<?> getAll() {
-        return energyUsageService.energyUsageList();
+    public ResponseEntity<?> getAll(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        return energyUsageService.energyUsageList(page, size);
     }
 
     @PostMapping()

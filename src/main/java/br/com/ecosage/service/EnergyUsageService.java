@@ -4,6 +4,9 @@ import br.com.ecosage.model.EnergyUsage;
 import br.com.ecosage.model.Equipment;
 import br.com.ecosage.repository.EnergyUsageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -20,10 +23,11 @@ public class EnergyUsageService {
     @Autowired
     private EnergyUsageRepository energyUsageRepository;
 
-    public ResponseEntity<?> energyUsageList() {
+    public ResponseEntity<?> energyUsageList(int page, int size) {
         try {
-            List<EnergyUsage> energyUsages = energyUsageRepository.findAll();
-            return ResponseEntity.ok(energyUsages);
+            Pageable pageable = PageRequest.of(page, size);
+            Page<EnergyUsage> energyUsagePage = energyUsageRepository.findAll(pageable);
+            return ResponseEntity.ok(energyUsagePage);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error: " + e.getMessage());
@@ -37,7 +41,7 @@ public class EnergyUsageService {
             var average = energyUsage.getTotalConsumedEnergy().divide(totalDaysBigDecimal, 2, RoundingMode.HALF_UP);
             energyUsage.setAverageDailyConsumption(average);
             EnergyUsage createdEnergyUsage = energyUsageRepository.save(energyUsage);
-            return ResponseEntity.ok(createdEnergyUsage);
+            return ResponseEntity.ok(createdEnergyUsage);                                             
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error to create: " + e.getMessage());

@@ -34,6 +34,12 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/chat/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/chat/**").permitAll()
                 .requestMatchers(HttpMethod.DELETE, "/chat/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/swagger-ui/index.html/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/docs/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/v3/api-docs/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/swagger-ui.html/**").permitAll()
                 .anyRequest().authenticated()
         );
         http.addFilterBefore(authorizationFilter, UsernamePasswordAuthenticationFilter.class);
