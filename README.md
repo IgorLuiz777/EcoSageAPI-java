@@ -90,6 +90,7 @@ Essa parceria tecnológica garante que o EcoSage seja não apenas eficiente, mas
 
 Confira o vídeo do nosso projeto no link abaixo:  
 [Assista ao Pitch](https://youtu.be/71exhDwl8Vw)
+
 [DEPLOY](https://ecosageapi-java-production.up.railway.app/swagger-ui.html) - Não irá funcionar por conta do Docker com o rabbit
 
 Projeto C#: [GITHUB](https://github.com/IgorLuiz777/EcoSage-CSharp)
